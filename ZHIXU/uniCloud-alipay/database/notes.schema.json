@@ -1,0 +1,21 @@
+{
+  "bsonType":"object",
+  "required":["title","content","category","owner_id"],
+  "permission":{"read":"doc.shared == true || doc.owner_id == auth.uid","create":"auth.uid != null","update":"doc.owner_id == auth.uid","delete":"doc.owner_id == auth.uid"},
+  "properties":{
+    "_id":{"description":"笔记 ID"},
+    "title":{"bsonType":"string","label":"标题","maxLength":120},
+    "content":{"bsonType":"string","label":"正文","maxLength":20000},
+    "summary":{"bsonType":"string","label":"摘要","maxLength":500},
+    "category":{"bsonType":"string","label":"分类","maxLength":40},
+    "tags":{"bsonType":"array","label":"标签","items":{"bsonType":"string"}},
+    "images":{"bsonType":"array","label":"图片","items":{"bsonType":"string"}},
+    "owner_id":{"bsonType":"string","label":"作者 UID"},
+    "author_name":{"bsonType":"string","label":"作者昵称","defaultValue":"拾记用户"},
+    "shared":{"bsonType":"bool","label":"是否公开","defaultValue":false},
+    "watermark":{"bsonType":"bool","label":"分享时添加水印","defaultValue":false},
+    "status":{"bsonType":"string","label":"状态","enum":["draft","published"],"defaultValue":"draft"},
+    "created_at":{"bsonType":"timestamp","label":"创建时间","defaultValue":{"$env":"now"}},
+    "updated_at":{"bsonType":"timestamp","label":"更新时间","defaultValue":{"$env":"now"}}
+  }
+}

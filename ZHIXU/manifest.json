@@ -1,0 +1,1 @@
+{"name":"笔记管理系统","appid":"__UNI__NOTE_MANAGER","description":"基于 uni-app 与 uniCloud 的笔记管理系统框架","versionName":"0.1.0","versionCode":"1","transformPx":false,"h5":{"title":"笔记管理系统","router":{"mode":"hash"}},"mp-weixin":{"appid":"","setting":{"urlCheck":false},"usingComponents":true},"vueVersion":"3"}
