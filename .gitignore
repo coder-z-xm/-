@@ -1,3 +1,7 @@
 unpackage/
 .DS_Store
 .hbuilderx/
+node_modules/
+.env
+.env.*
+.claude/settings.local.json

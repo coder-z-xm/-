@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(node *)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e 'const{execSync}=require(\"child_process\");let s=\"\";try{s=execSync(\"git status --short\",{encoding:\"utf8\"}).trim()}catch(e){}console.log(JSON.stringify({hookSpecificOutput:{hookEventName:\"Stop\",additionalContext:\"工作区 git 状态:\\n\"+(s||\"(干净)\")}}))' 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
